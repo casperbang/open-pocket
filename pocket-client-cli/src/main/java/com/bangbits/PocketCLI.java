@@ -33,8 +33,6 @@ import java.util.logging.Logger;
  * java -jar /tmp/maven-targets/PocketCLI/jars/PocketCLI-1.0-SNAPSHOT.jar /home/casper/Dropbox/SecureWallet
  *
  * java -jar /tmp/maven-targets/pocket-client-cli/jars/pocket-client-cli-1.0-SNAPSHOT.jar /home/casper/Dropbox/SecureWallet
- * 
- * @author   Rose India Team
  */
 
 public final class PocketCLI implements PocketController{
