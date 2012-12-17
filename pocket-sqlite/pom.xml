@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.bangbits</groupId>
+        <artifactId>pocket-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <groupId>com.bangbits</groupId>
+    <artifactId>pocket-sqlite</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>pocket-sqlite</name>
+    <description>SQLite persistance provider for Pocket</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyy.MM.dd</maven.build.timestamp.format>
+        <buildNumber>${maven.build.timestamp}</buildNumber>
+        <author>Casper Bang [casper.bang@gmail.com]</author>
+        <version>${project.version}-${maven.build.timestamp}</version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.bangbits</groupId>
+            <artifactId>pocket-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+   
+         <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.7.2</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>4.21</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-core</artifactId>
+            <version>4.21</version>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+        <!-- Relocating build paths to /tmp stresses I/O much less, which is good
+        when developing over a mounted DropBox folder -->
+        <directory>/tmp/maven-targets/${project.name}</directory>
+        <outputDirectory>/tmp/maven-targets/${project.name}/classes</outputDirectory>
+        <testOutputDirectory>/tmp/maven-targets/${project.name}/test-classes</testOutputDirectory>
+        
+        <!--plugins>
+
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <outputDirectory>/tmp/maven-targets/${project.name}/jars</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Vendor>${author}</Implementation-Vendor>
+                            <Implementation-Version>${version}</Implementation-Version>
+                        </manifestEntries>                        
+                    </archive>
+                </configuration>
+                
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/jars</outputDirectory>
+                                <includeArtifactIds>PocketCLI,bcprov-jdk16,sqlite-jdbc,ormlite-jdbc,ormlite-core</includeArtifactIds>
+                            </configuration>
+                        </execution>
+                    </executions>
+            </plugin>            
+                  
+        </plugins-->
+    </build>
+    
+    
+</project>
